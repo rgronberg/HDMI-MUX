@@ -1,10 +1,12 @@
 //HDMI-MUX-driver.ino
 
+#include <ESP8266NetBIOS.h>
 #include <WiFiManager.h>
 
 #include "MuxDriver.hpp"
 #include "WebServer.hpp"
 
+ESP8266NetBIOS netBIOS;
 MuxDriver muxDriver;
 WiFiManager wifiManager;
 WebServer webServer(muxDriver, wifiManager);
@@ -20,6 +22,7 @@ void setup() {
 
     WiFi.mode(WIFI_STA);
     WiFi.hostname(hostname);
+    netBIOS.begin(hostname);
 
     wifiManager.setConfigPortalBlocking(false);
     wifiManager.setConfigPortalTimeout(120);
