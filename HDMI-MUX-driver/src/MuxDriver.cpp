@@ -2,9 +2,13 @@
  * HDMI-MUX: MuxDriver.cpp
  */
 
+#include <EEPROM.h>
+
 #include "MuxDriver.hpp"
 
-void MuxDriver::begin(int initialPort /* one-based */) {
+void MuxDriver::begin() {
+    int initialPort;
+
     // Set the pin modes for the pins used in the class
     pinMode(buttonPin, INPUT);
     pinMode(muxA_enable, OUTPUT);
@@ -16,8 +20,16 @@ void MuxDriver::begin(int initialPort /* one-based */) {
     pinMode(port3LED, OUTPUT);
     pinMode(port4LED, OUTPUT);
 
-    // Set initial state
-    enablePort(initialPort);
+    EEPROM.begin(16);
+
+    // Set initial state, from EEPROM if valid value
+    EEPROM.get(0, initialPort);
+    if (0 < initialPort && initialPort <= numPorts) {
+        enablePort(initialPort);
+    }
+    else {
+        enablePort(1);
+    }
 }
 
 void MuxDriver::handleButton() {
@@ -60,6 +72,18 @@ void MuxDriver::handleButton() {
 
     // save the reading for the next time through the loop
     lastButtonState = reading;
+}
+
+void MuxDriver::handleSettings() {
+    if (millis() - lastStoreTime > saveTime) {
+        lastStoreTime = millis();
+        saveSettings();
+    }
+}
+
+void MuxDriver::saveSettings() {
+    EEPROM.put(0, enabledPort());
+    EEPROM.commit();
 }
 
 void MuxDriver::clearEnabledPort() {
@@ -124,4 +148,9 @@ int MuxDriver::enabledPort() {
 
 bool MuxDriver::shouldReset() {
     return _shouldReset;
+}
+
+void MuxDriver::resetSettings() {
+    currentPortIndex = 0;
+    saveSettings();
 }

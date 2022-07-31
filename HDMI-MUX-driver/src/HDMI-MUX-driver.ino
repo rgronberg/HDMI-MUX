@@ -15,7 +15,7 @@ void setup() {
     Serial.begin(115200);
     Serial.println();
 
-    muxDriver.begin(1);
+    muxDriver.begin();
 
     char hostname[32] = "";
     snprintf(hostname, sizeof(hostname), "hdmimux-%d", ESP.getChipId());
@@ -41,5 +41,6 @@ void loop() {
     }
 
     muxDriver.handleButton();
+    muxDriver.handleSettings();
     webServer.handleClient();
 }

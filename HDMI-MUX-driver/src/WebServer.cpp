@@ -25,6 +25,7 @@ void WebServer::begin() {
 void WebServer::handleClient() {
     if (resetFlag || muxDriver->shouldReset()) { // or muxDriver calls for a reset
         wifiManager->resetSettings();
+        muxDriver->resetSettings();
         delay(1000);
         ESP.restart();
     }
