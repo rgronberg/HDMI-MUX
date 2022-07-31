@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html lang="en" class="notranslate" translate="no">
+    <head>
+        <title>HDMI-MUX Manager</title>
+        <meta name="google" content="notranslate">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="static/bootstrap.min.css">
+        <script src="static/main.js"></script>
+    </head>
+    <body>
+        <div class="container pb-5">
+            <!-- Headder -->
+            <div class="row justify-content-center p-5 mb-2 text-white bg-dark border-bottom">
+                <div class="p-1 col-xs-6 col-sm-5 col-md-4 col-lg-3">
+                    <H2>HDMI-MUX</H2>
+                </div>
+            </div>
+
+            <!-- Selected port -->
+            <div class="row p-1 justify-content-center">
+                <div class="p-1 col-xs-4 col-sm-3 col-md-3 col-lg-2 text-center">
+                    <div id="basic-status">
+                        <a href="/selected">Selected port...</a>
+                    </div>
+                    <div id="js-status" hidden>
+                        <H6>Selected port: <span id="status-data">N/A</span></H6>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="row p-1 justify-content-center">
+                <div class="p-1 col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                    <a href="/port1" class="w-100 btn btn-secondary portpicker" role="button" onClick="port1()">
+                        Enable port 1
+                    </a>
+                </div>
+                <div class="p-1 col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                    <a href="/port2" class="w-100 btn btn-secondary portpicker" role="button" onClick="port2()">
+                        Enable port 2
+                    </a>
+                </div>
+                <div class="p-1 col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                    <a href="/port3" class="w-100 btn btn-secondary portpicker" role="button" onClick="port3()">
+                        Enable port 3
+                    </a>
+                </div>
+                <div class="p-1 col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                    <a href="/port4" class="w-100 btn btn-secondary portpicker" role="button" onClick="port4()">
+                        Enable port 4
+                    </a>
+                </div>
+            </div>
+            <div class="row p-1 justify-content-center">
+                <div class="col-xs-2 col-sm-4 col-md-4 col-lg-4">
+                    <a href="/next" class="w-100 btn btn-secondary portpicker" role="button" onClick="nextPort()">
+                        Enable next port
+                    </a>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript">initIndex()</script>
+</html>

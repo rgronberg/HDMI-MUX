@@ -18,6 +18,11 @@ class WebServer
         MuxDriver *muxDriver;
         WiFiManager *wifiManager;
 
+        void handleNotFound();
+        void handleStatic();
+        void handlePortconfig();
+        void handleReset();
+
     public:
         WebServer(MuxDriver &muxDriver, WiFiManager &wifiManager);
         void begin();
