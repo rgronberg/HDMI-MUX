@@ -71,6 +71,7 @@ void MuxDriver::enablePort1() {
     digitalWrite(muxA_enable, HIGH);
     digitalWrite(muxA_select, LOW);
     digitalWrite(port1LED, HIGH);
+    this->currentPortIndex = 0;
 }
 
 void MuxDriver::enablePort2() {
@@ -78,6 +79,7 @@ void MuxDriver::enablePort2() {
     digitalWrite(muxA_enable, HIGH);
     digitalWrite(muxA_select, HIGH);
     digitalWrite(port2LED, HIGH);
+    this->currentPortIndex = 1;
 }
 
 void MuxDriver::enablePort3() {
@@ -85,6 +87,7 @@ void MuxDriver::enablePort3() {
     digitalWrite(muxB_enable, HIGH);
     digitalWrite(muxB_select, LOW);
     digitalWrite(port3LED, HIGH);
+    this->currentPortIndex = 2;
 }
 
 void MuxDriver::enablePort4() {
@@ -92,6 +95,7 @@ void MuxDriver::enablePort4() {
     digitalWrite(muxB_enable, HIGH);
     digitalWrite(muxB_select, HIGH);
     digitalWrite(port4LED, HIGH);
+    this->currentPortIndex = 3;
 }
 
 void MuxDriver::enablePort(int port /* one-based */) {
