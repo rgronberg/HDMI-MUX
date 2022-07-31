@@ -34,6 +34,13 @@ void MuxDriver::handleButton() {
         this->lastDebounceTime = millis();
     }
 
+    // Long button press should cause settings reset
+    if ((millis() - this->lastDebounceTime) > this->longPress &&
+            this->buttonState == LOW &&
+            !this->_shouldReset) {
+        this->_shouldReset = true;
+    }
+
     if ((millis() - this->lastDebounceTime) > this->debounceDelay) {
         // whatever the reading is at, it's been there for longer than the debounce
         // delay, so take it as the actual current state:
@@ -113,4 +120,8 @@ void MuxDriver::enableNextPort() {
 int MuxDriver::enabledPort() {
     // Return value is one-based
     return this->currentPortIndex + 1;
+}
+
+bool MuxDriver::shouldReset() {
+    return this->_shouldReset;
 }

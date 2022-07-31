@@ -23,7 +23,8 @@ void WebServer::begin() {
 }
 
 void WebServer::handleClient() {
-    if (resetFlag) {
+    if (resetFlag || muxDriver->shouldReset()) { // or muxDriver calls for a reset
+        wifiManager->resetSettings();
         delay(1000);
         ESP.restart();
     }
@@ -148,7 +149,6 @@ void WebServer::handleReset() {
 
     this->server.on("/reallyreset", [this]() {
         this->server.send(200, "text/plain", "WiFi creds reset and rebooting...");
-        wifiManager->resetSettings();
         resetFlag = true;
     });
 }

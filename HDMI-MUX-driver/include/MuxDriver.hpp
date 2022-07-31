@@ -16,6 +16,7 @@ class MuxDriver
     private:
         /***** Member constants *****/
         const unsigned long debounceDelay = 50; // ms
+        const unsigned long longPress = 5000;   // ms
         const int numPorts = 4;                 // Number of ports in the mux
         const EnableFuncPtr enableFunctions[4] = { &MuxDriver::enablePort1,
                                                    &MuxDriver::enablePort2,
@@ -43,6 +44,7 @@ class MuxDriver
         int buttonState = HIGH;             // the current reading from the input pin
         int lastButtonState = HIGH;         // the previous reading from the input pin
         int currentPortIndex = 0;           // the currently sellected mux port (zero based)
+        bool _shouldReset = false;          // set true if button is long pressed
 
         /***** Internal methods *****/
         void clearEnabledPort();
@@ -60,6 +62,8 @@ class MuxDriver
         void enablePort(int port);  // One-based port index
         void enableNextPort();
         int enabledPort();          // One-based port index
+
+        bool shouldReset();
 };
 
 #endif  // __MUXDRIVER_HPP__
