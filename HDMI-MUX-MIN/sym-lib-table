@@ -1,0 +1,6 @@
+(sym_lib_table
+  (lib (name "SS-53000-001")(type "Legacy")(uri "${KIPRJMOD}/symbols/SS-53000-001.lib")(options "")(descr ""))
+  (lib (name "TS3DV642A0RUAR")(type "Legacy")(uri "${KIPRJMOD}/symbols/TS3DV642A0RUAR.lib")(options "")(descr ""))
+  (lib (name "UJC-HP-3-SMT-TR")(type "Legacy")(uri "${KIPRJMOD}/symbols/UJC-HP-3-SMT-TR.lib")(options "")(descr ""))
+  (lib (name "613006143121")(type "Legacy")(uri "${KIPRJMOD}/symbols/613006143121.lib")(options "")(descr ""))
+)

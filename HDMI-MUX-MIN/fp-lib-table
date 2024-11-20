@@ -1,0 +1,7 @@
+(fp_lib_table
+  (lib (name "QFN50P900X350X80-43N")(type "KiCad")(uri "${KIPRJMOD}/footprints/QFN50P900X350X80-43N.pretty")(options "")(descr ""))
+  (lib (name "STEWART_SS-53000-001")(type "KiCad")(uri "${KIPRJMOD}/footprints/STEWART_SS-53000-001.pretty")(options "")(descr ""))
+  (lib (name "CUI_UJC-HP-3-SMT-TR")(type "KiCad")(uri "${KIPRJMOD}/footprints/CUI_UJC-HP-3-SMT-TR.pretty")(options "")(descr ""))
+  (lib (name "613006143121")(type "KiCad")(uri "${KIPRJMOD}/footprints/613006143121.pretty")(options "")(descr ""))
+  (lib (name "MINI-SPDT-SW")(type "KiCad")(uri "${KIPRJMOD}/footprints/MINI-SPDT-SW.pretty")(options "")(descr ""))
+)
